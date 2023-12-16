@@ -1,0 +1,7 @@
+- Generic is implemented by type erasure
+- Generic exists when compiling, after compiling, the generic type turn to raw type(if it is correct)
+- E extends GeometricObject , E object1 = GeometricObject object1
+- We cannot use generic parameters to create instance
+- We cannot use generic parameters to create arrays
+- Java don't allow the static parameters are generic type
+- Exception can't be generic

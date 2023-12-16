@@ -1,0 +1,4 @@
+- AbstractCollection class provides part of implements of Collection interface
+- Collection interface provide basic operations in collections 
+- The actual implementations are in subclasses
+- All the Java Collection framework have 2 constructors, one is non-parameter, one is use a collection-used constructor

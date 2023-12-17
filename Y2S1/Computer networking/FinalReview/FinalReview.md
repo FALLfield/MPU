@@ -25,6 +25,10 @@
     - rate at which bits are being sent from sender to receiver
     ![Alt text](image-2.png)
 
+- Two key network-core functions
+    - routing: determines source-destination route taken by packets
+    - **forwarding: move packets from router's input to appropriate router output(Q)**
+
 ### Application layer
 - Internet transport protocols services
     - TCP
@@ -68,10 +72,19 @@
 
 - Sequence Number
 ![Alt text](image-8.png)
+![Alt text](image-19.png)
 - No 4
 ![Alt text](image-9.png)
 - Datagrams
 ![Alt text](image-10.png)
+
+- TCP Congestion Control
+    - Congestion window(cwnd): a parameter to limit the transmission rate in sender
+        - Sender limits transmission: the amount of unacknowledged data at a sender may not exceed the minimum of cwnd and rwnd
+        ![Alt text](image-17.png)
+    ![Alt text](image-18.png)
+
+    - Chapter 3, 4(Q), 5(Q)
 
 ### Networklayer
 
@@ -101,18 +114,46 @@
     - If all edges in the graph have the same cosst, the least-cost problem is also the shortest path problem
 
 - Dijkstra's algorithm
+![Alt text](image-16.png)
 ![Alt text](image-14.png)
 
 ### Link layer
+
+- Multiple access protocols
+    - MAC protocol
+        - It is designed to coordinate the transmission of different nodes in order to minimize/avoid collission
+    - **Goal**
+        - Efficient and fair
+            - When one node wants to transmit it can send at rate R, where R is the rate of broadcast link
+            - When N nodes want to transmit, each can send at average rate R/N
+        - Simple
+            - Simple and easy to implement
+        - decentralized
+            - No special node is needed to coordinate transmissions
+            - no synchronizzation among all nodes
 
 - Slotted ALOHA
     - Assumptions
         - All frames consist of exactly fixed-size bits
         - time divided into equal size slots
         - If 2 or more nodes transmit in slot, all nodes detect collision
-    - when node obtains fresh frame, transmits in next slot
-        - if no collision: node can send new frame in next slot
-        - if collision: node retransmits frame in each subsequent slot with prob. p until success
+        - nodes are synchronized
+    - Operation
+        - when node obtains fresh frame, transmits in next slot
+            - if no collision: node can send new frame in next slot
+            - if collision: node retransmits frame in each subsequent slot with prob. p until success
+    
+    - Advantages:
+        - Single active node can continuously transmit at full rate of channel
+        - highly decentralized
+            - nodes detect collision independently
+            - node decides when to retransmit independently
+        - simple
+    - Disadvantages
+        - collisions, wasting slots
+        - idle slots
+        - clck synchronization
+        - at best , channel used for useful transmissions 37% of time
     ![Alt text](image-15.png)
     - Q1: answer: p*(1-p)^(N-1) (N is the total nodes number)
     - Q2: answer: (p*(1-p)^(N-1))^N

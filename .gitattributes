@@ -1,0 +1,4 @@
+Y1S1 filter=lfs diff=lfs merge=lfs -text
+Y1S2 filter=lfs diff=lfs merge=lfs -text
+Y2S1 filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text

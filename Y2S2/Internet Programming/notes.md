@@ -64,3 +64,19 @@
                 - 400: Bad requests
                 - 403: Forbidden
                 - 404: Not Found
+
+
+## Introduction to Django and Getting Started
+
+
+- Django
+    - Django is a free and open source web framework, written in Python that encourages rapid development
+    - It follows the **MVC(Model-view-controller)** pattern, with its own modification to be called the MTV framework (Model-Template-View)
+    - Includes ORM that supports many databases
+- Common tasks supprorted by Django
+    - User authentication
+    - templates, routes, and views
+    - admin interface
+    - robust security
+    - support for multiple database backends
+    - ...

@@ -17,6 +17,12 @@
     - Defination
         - Store data of application
         - **relational and non-relational databases**
+    - Examples
+        - MongoDB -an open-sourced NoSQL database
+        - PostgreSQL -a popular open-sourced SQL databse
+        - MySQL -another popular open-sourced SQL database
+        - Oracle -an enterprise SQL databse
+        - SQL Server -an SQL server manager created by Microsoft
 - Client and Server
     - Defination of Client
         - This party **requests pages from server, and displays them to the user. (Client is often a web browser)

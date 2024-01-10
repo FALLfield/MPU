@@ -60,8 +60,13 @@
     - User Interface
 
 - Software process activities
+
   - Market researching
   - Software specification
   - Software development
   - Software validation
   - Software evolution
+
+- Software engineering ethics
+  - Software engineering involves wider responsibilities than simply the
+    application of technical skills

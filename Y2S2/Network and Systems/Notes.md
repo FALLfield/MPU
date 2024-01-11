@@ -78,11 +78,25 @@
 
 ## Chapter2 Booting and System Management Daemons
 
+- BIOS
+
+  - Basic input / ouput system
+
+    - BIOS是计算机系统中的基本输入/输出系统（Basic Input/Output
+      System）的缩写。它是存在于计算机主板上的固件，负责在计算机启动时进行硬件初始化和自检，并提供一些基本的低级功能。
+
+    BIOS的主要功能包括以下几个方面：
+
+        1. 硬件初始化：当计算机启动时，BIOS负责初始化和检测主板上的各种硬件设备，包括处理器、内存、硬盘驱动器、显卡等。它会验证硬件设备是否正常工作，并将其准备好供操作系统使用。
+        2. 启动顺序：BIOS确定了计算机的启动顺序。在计算机启动时，BIOS会按照预设的顺序检查每个可启动设备，例如硬盘、光盘驱动器、USB设备等，以寻找可引导的操作系统。
+        3. CMOS设置：BIOS存储了计算机的基本配置信息，这些信息存储在CMOS（Complementary Metal-Oxide-Semiconductor）芯片中。通过BIOS设置程序，用户可以访问和修改这些配置，例如日期和时间、启动顺序、硬件参数等。
+
 - Boot process
   - Main steps
     - Finding, loading, and running **bootstrapping code**
       - During bootStrapping, the kernel is loaded into memory and begins to
         execute
     - Finding, loading, and running the **OS kernel**
+      - Kernel is like a connection between system and hardware
     - Running startup **scripts and system daemons**
     - Maintaining process hygiene and managing system state transitions

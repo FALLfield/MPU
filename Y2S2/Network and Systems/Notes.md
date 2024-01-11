@@ -1,8 +1,8 @@
 ## Introduction to system administrator
 
 - Essential Duties
-  - User account management
-  - Hardware management
+  - **User account management**
+  - **Hardware management**
     - Capacity planning
     - Inventory
     - Hardware evaluation and purchase
@@ -10,14 +10,14 @@
     - Cabling, wiring, etc
     - Device driver installation
     - System configuration and settings
-  - Perform file system backups, restores
+  - **Perform file system backups, restores**
     - Disk and backup media capacity planning
     - Performance, network and system impact
     - Disaster recovery
       - Onsite / Offsite
       - Periodic testing
       - Multiple copies
-  - Install and configure new software and services
+  - **Install and configure new software and services**
     - Evaluation of software
     - Downloading and building
     - Installation
@@ -25,7 +25,7 @@
     - Security
     - Patches and updates
     - User notification, documentation
-  - Keep systems and services operating
+  - **Keep systems and services operating**
     - System monitoring
       - Hardware and devices functioning and operational
       - Capacity, Security, System logs
@@ -33,7 +33,7 @@
       - Troubleshooting is the process of identifying and resolving problems or
         issues that occur in various systems, machines, devices, or processes.
       - Problem discovery, diagnosis, and resolution
-  - Mantain documentation
+  - **Mantain documentation**
     - Local Documentation
       - Administrative policies and procedures
         - Backup media locations
@@ -45,7 +45,7 @@
           - Installation, build, and configuration details
           - Patches installed
       - Acceptable use policies
-  - Audit security
+  - **Audit security**
     - System logging and audit facilities
     - Unexpected or unauthorized use detection
     - Monitoring of security advisories
@@ -75,3 +75,14 @@
     - Interprocess communication
     - Device management
     - Error handling and logging
+
+## Chapter2 Booting and System Management Daemons
+
+- Boot process
+  - Main steps
+    - Finding, loading, and running **bootstrapping code**
+      - During bootStrapping, the kernel is loaded into memory and begins to
+        execute
+    - Finding, loading, and running the **OS kernel**
+    - Running startup **scripts and system daemons**
+    - Maintaining process hygiene and managing system state transitions

@@ -76,3 +76,18 @@
     - It profuces systems that are built on stable intermediate forms, which are
       more resilient to change
     - It appeals to the workings of human cognition
+
+## Chapter2
+
+- Stateful and Stateless objects
+
+  - Stateful objects for individual user
+    - Multiple instances
+  - Stateless objects for all users
+    - Unique instance
+
+- Aggregation
+  - If a class has an entity reference, it is known as Aggregation
+  -
+- Aggregation
+  - If a class has an entity reference, it is known as Aggregation

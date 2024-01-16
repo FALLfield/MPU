@@ -69,8 +69,8 @@
   - Definition
     - A statelesss, application-layer protocol for communicating between
       distributed systems
-  - Communication takes place over TCP/IP, but any reliable transport can be
-    used
+  - Communication takes place over TCP/IP, but any reliable Reviewtransport can
+    be used
 - URLs(网址)
 - Request
   - URLs reveal the identity of the particular host with which we want to
@@ -105,3 +105,5 @@
   - robust security
   - support for multiple database backends
   - ...
+
+## Chapter2 The First Web Application

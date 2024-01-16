@@ -99,4 +99,4 @@
     - Finding, loading, and running the **OS kernel**
       - Kernel is like a connection between system and hardware
     - Running startup **scripts and system daemons**
-    - Maintaining process hygiene and managing system state transitions
+    - Maintaining process hygiene and managing system state transitions``

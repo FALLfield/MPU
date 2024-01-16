@@ -70,3 +70,21 @@
   - Example
     - Combine details of staff (S) and teh departments(D)
     - ∏<sub>staffNo,job,dept</sub>(S) ⨯ ∏<sub>dept, name</sub>(D)
+    - 与之对应的是JOIN
+- Join
+  - Natural Join
+    - T ⨝ U
+  - Semijoin
+    - T ▷<sub>B</sub> U
+    - 它的结果是一个新的表，其中包含第一个表中满足条件的记录以及与第二个表中满足连接条件的记录相关的信息。
+  - Left Outer Join
+    - T ⟕ U
+    - 在进行左外连接时，将左表的每一行与右表进行比较，并返回满足连接条件的行。如果右表中没有匹配的行，则使用NULL值填充右表的列。
+  - Division
+  - Theta Join
+    - Defines a relation that contains tuples satisfying the predicate F from
+      the Cartesian product the Cartesian product of R and S
+    - R ⨝<sub>(condition)</sub>
+    - ∏<sub>staffNo,job,dept</sub>(S) ⨝<sub>Staff.debt = Dept.dept</sub>
+      ∏<sub>dept, name</sub>(Dept)
+  - Equijion (a special type of Theta Join)

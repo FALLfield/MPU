@@ -7,8 +7,22 @@
       developed for a particular customer or may be developed for a general
       market
   - What are the attributes of good software
-    - Good software should deliver the required functionality and performance to
-      the
+    - Good software should deliver the required functionality and good
+      performance to the user and should be maintainable, dependable and usable
+  - What is software engineering
+    - Software engineering is an engineering discipline that is concerned with
+      all aspects of software production
+  - What ae the fundamental software engineering activities
+    - Software specification, software development, software validation and
+      software evolution
+  - What is the difference between software engineering and computer science
+    - Computer science focuses on theory and fundamentals; software engineering
+      is concerned with the practicalities of developing and delivering useful
+      software
+  - What is the difference between software engineering and system engineering
+    - System engineering is concerned with all aspects off computer-based
+      systems development including hardware, software and process engineering.
+      Software engineering is part of this more general process
 
 - Software products
 

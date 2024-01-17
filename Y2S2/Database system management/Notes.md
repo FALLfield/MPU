@@ -85,6 +85,5 @@
     - Defines a relation that contains tuples satisfying the predicate F from
       the Cartesian product the Cartesian product of R and S
     - R ⨝<sub>(condition)</sub>
-    - ∏<sub>staffNo,job,dept</sub>(S) ⨝<sub>Staff.debt = Dept.dept</sub>
-      ∏<sub>dept, name</sub>(Dept)
+    - ∏<sub>staffNo,job,dept</sub>(S) ⨝<sub>Staff.debt = Dept.dept</sub>∏<sub>dept, name</sub>(Dept)
   - Equijion (a special type of Theta Join)

@@ -100,3 +100,32 @@
       - Kernel is like a connection between system and hardware
     - Running startup **scripts and system daemons**
     - Maintaining process hygiene and managing system state transitions``
+- GRUB: The Grand Unified Boot Loader
+  - Stage 1
+    - After the BIOS/UEFI POST section, BIOS/UEFI searches the attached disks
+      for a boot record, which is loacted in the Master Boot Record
+    - The **bootstrap code**, that is GRUB stage1, is very small which is 446
+      bytes, it must fit into the first 512-byte sector on the hard drive along
+      with the partition table.
+  - Stage 1.5
+    - The purpose of stage1 is to load stage 1.5
+    - The stage 1.5 of GRUB must be located in the space between the boot record
+      and the UEFI partition data and the first partition on the driver
+  - Stage 2
+    - All of the files for GRUB stage 2 are located in the /boot/grub directory
+      and its subfiretories
+    - Multiple files are used for configuring GRUB's menu, and some of these
+      files are stored under the /etc/grub.d/ directory, such as following
+      - 00_header
+        - Sets the default values for some general GRUB variables such as
+          graphics mode, default selection, timeouts, and so on
+      - 10_linux
+        - Helps to find all the kernels on the root device of the current
+          operating system, and automatically creates associated GRUB entries
+          for all the kernels it finds
+      - 30_os-prober
+        - Automatically probes for other operating systems that might be
+          installed on the system. Especially useful in dual-boot
+          systems(Windows running with Linux, for example)
+      - 40_custom
+        - Where users can edit and store custom menu entries and directives

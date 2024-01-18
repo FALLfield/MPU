@@ -82,5 +82,19 @@
   - Software evolution
 
 - Software engineering ethics
+
   - Software engineering involves wider responsibilities than simply the
     application of technical skills
+
+- Waterfall model phases
+
+  - Requirements analysis and definition
+  - System and software design
+  - Implementation and unit testing
+  - Integration and system testing
+  - Operation maintenance
+
+- Agile Methods
+  - The aim of agile methods is to reduce overheads in the software process and
+    to be albe to respond quickly to changing requirements withoout excessive
+    rework

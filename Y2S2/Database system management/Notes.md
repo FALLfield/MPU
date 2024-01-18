@@ -85,5 +85,43 @@
     - Defines a relation that contains tuples satisfying the predicate F from
       the Cartesian product the Cartesian product of R and S
     - R ⨝<sub>(condition)</sub>
-    - ∏<sub>staffNo,job,dept</sub>(S) ⨝<sub>Staff.debt = Dept.dept</sub>∏<sub>dept, name</sub>(Dept)
+    - ∏<sub>staffNo,job,dept</sub>(S) ⨝<sub>Staff.debt =
+      Dept.dept</sub>∏<sub>dept, name</sub>(Dept)
   - Equijion (a special type of Theta Join)
+
+## Chapter 2 Query Processing
+
+- One of the major criticisms often cited in Relational Model was inadequate
+  performace of queries
+- Find the most cost effective way to perform a complex query
+- Aims of QP (query proecessing)
+  - **transform query written in high-level language into correct adn efficient
+    execution strategy expressed in low-level language**
+- Phases of QP
+  - Query Porcessing:The activities involved in retrieving data from database
+  - Query Decomposition:
+    - To transform a high-level query into a relational algebra query
+    - And to check that the query is syntactically and semantically correct
+  - Query OPtimization:
+    - The activity of choosing an efficient execution strategy for processing a
+      query
+  - Code Generation:
+  - Runtime Query:
+- Two choices when first 3 phases of QP can be carried out
+  - Dynamic Query Optimzation
+    - Dynamically carry out decomposition and optimization every time query is
+      run
+    - Advantage
+      - All information required to select an optimum strategy is up to date
+    - Disadvantage
+      - **The performance of query is affected** because to query has to be
+        parsed,validated, and optimized before it can be executed
+  - Static Query Optimzation
+    - THe query is parsed, validated, and optimized once, when query is first
+      submitted
+- Relational Algebra Tree
+  - **Leaf node** created for each base relation
+  - Non-leaf node created for each intermediate relation produced by RA
+    operation
+  - Root of tree represents query result
+  - Sequence is directed from leaves to root

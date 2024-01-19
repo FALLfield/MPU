@@ -96,7 +96,7 @@
   - Django is a free and open source web framework, written in Python that
     encourages rapid development
   - It follows the **MVC(Model-view-controller)** pattern, with its own
-    modification to be called the MTV framework (Model-Template-View)
+    modification to be called the **MTV framework (Model-Template-View)**
   - Includes ORM that supports many databases
 - Common tasks supprorted by Django
   - User authentication
@@ -107,3 +107,26 @@
   - ...
 
 ## Chapter2 The First Web Application
+
+- Building the first Web application with views and URLConfs
+
+- We specify the function display in views.py by URLConfs
+- What is MTV Framework
+  - M stands for Model
+  - T stands for Template
+  - V stands for View
+- What is a Django Application?
+  - A single Django project contains one or more apps within it that all work
+    together to power a web application.
+- In settings.py
+  - Domain name
+  - Application name
+- How to create an App -`python manage.py startapp pages`
+  - App files
+    - admin.py
+    - apps.py
+    - migrations/
+    - models.py
+    - tests.py
+    - views.py
+  - ## prject-level urls.py

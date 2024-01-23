@@ -18,8 +18,8 @@
       complex systems tend to evolve overtime
 - Software Development Life Cycle
 
-  - SDLC is a structured sequence of stages in software engineering to develop
-    the software product
+  - **SDLC is a structured sequence of stages in software engineering to develop
+    the software product**
   - Steps
     - Define User Requiremets
     - Feasibillity Study (Proof of Concept)
@@ -79,15 +79,42 @@
 
 ## Chapter2
 
+- Class
+
+  - What is a Java Class
+    - Classes are constructs that define objects of the same type
+  - Class variables & Class Methods
+    - In Java, there is a keyword `static` for defining class level variables
+      and methods
+
+- Objects
+
+  - An object is a tangible antity that exhibits some well-defined behaviors
+  - The benifits of Abstraction
+    - We can write less codes when creating new classes
+    - We can focus more on the implementation work
+    - We can centralize the common codes and can change them consistently
+
 - Stateful and Stateless objects
 
   - Stateful objects for individual user
     - Multiple instances
+    - User level variables
   - Stateless objects for all users
     - Unique instance
+    - Application level variables
 
 - Aggregation
+
   - If a class has an entity reference, it is known as Aggregation
-  -
-- Aggregation
-  - If a class has an entity reference, it is known as Aggregation
+  - Aggregation represents "has a" relationship
+  - Benifits
+    - Code reuse is also best achived by aggregation when there is NOT "is a"
+      relationship
+    - INheritance should be used only if the relationship "is a" is maintained
+      throughout the lifetime of the objects involved.
+
+- Encapsulation
+  - Variable names must be unique in some procedural programming languages
+  - A single procefural program will commonly hold a thousand of vairables and
+    many functions

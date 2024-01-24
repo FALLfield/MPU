@@ -101,6 +101,7 @@
     - Running startup **scripts and system daemons**
     - Maintaining process hygiene and managing system state transitions``
 - GRUB: The Grand Unified Boot Loader
+
   - Stage 1
     - After the BIOS/UEFI POST section, BIOS/UEFI searches the attached disks
       for a boot record, which is loacted in the Master Boot Record
@@ -129,3 +130,18 @@
           systems(Windows running with Linux, for example)
       - 40_custom
         - Where users can edit and store custom menu entries and directives
+  - Load the Linux kernel
+    - The kernels are located in the `boot` directory, along with an initial RAM
+      disk image and symbol maps
+    - After the selected kernel is loaded into meomry by GRUB and begins
+      executing, it must first extract irself from the compressed version of the
+      file before it can preform any useful work
+
+- Linux Startup
+  - **System management daemons**
+    - Spontaneous processes
+      - Once the kernel has been loaded and has completed its initialization
+        process, it creates a complement of "Spontaneous" processes in user
+        space
+      - They are not configurable, and they don't require administrative
+        attention

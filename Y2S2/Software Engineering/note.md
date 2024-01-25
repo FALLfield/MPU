@@ -12,7 +12,7 @@
   - What is software engineering
     - Software engineering is an engineering discipline that is concerned with
       all aspects of software production
-  - What ae the fundamental software engineering activities
+  - What are the fundamental software engineering activities
     - Software specification, software development, software validation and
       software evolution
   - What is the difference between software engineering and computer science
@@ -23,37 +23,101 @@
     - System engineering is concerned with all aspects off computer-based
       systems development including hardware, software and process engineering.
       Software engineering is part of this more general process
+  - What are the key challenges facing software engineering
+    - Coping with increasing diversity, demands for reduced delivery times adn
+      developing trustworthy software
+  - What are the costs of software engineering
+    - Roughly 60% of software costs are development costs, 40% are testing
+      costs. For custom software, evolution costs often exceed development costs
+  - What are the best software engineeing techniques and methods
+    - While all software projects have to be professionally managed and
+      developed, different techniques are appropriate for different types of
+      system. For example, games should always be developed using a series of
+      prototypes whereas safety critical control systems require a complete and
+      analyzable specification to be developed.
+  - What differences has the web made to software engineering
+    - The web has led to the availability of software services and the
+      possiblity of developing highly distributed service-based systems.
+      Web-based systems development has led to important advances in programming
+      languages and software reuse
 
-- Software products
+- Professional software development
 
-  - Generic products
-    - Stand-alone systems that are marketed and sold to and customer who wishes
-      to buy them
-    - Example: PC software
+  - Software products
+
+    - Generic products
+      - Stand-alone systems that are marketed and sold to and customer who
+        wishes to buy them
+      - Example: PC software
+
   - Customized products
+
     - Software that is commissioned by a specific customer to meet their own
       needs
     - Example: Embedded control systems
 
-- Product specification
+  - Product specification
 
-  - Generic product specification
-  - Customized product specification
+    - Generic product specification
+    - Customized product specification
 
-- Essential attributes of good software
+  - **Essential attributes of good software**
 
-  - Maintainability
-  - Dependability and security
-  - Efficiency
-  - Acceptability
+    - Maintainability
+    - Dependability and security
+    - Efficiency
+    - Acceptability
 
-- Application types
+  - Software engineering
+    - Software engineering is an engineering discipline , using _appropriate
+      theories and methods to solve problems bearing in mind_ organizational and
+      financial constraints
+  - Importance of software engineering
+    - More and more, individuals and society rely on advanced software systems
+    - Able to produce _reliable and trustworthy systems_ economically and
+      quickly
+    - Cheaper in long run
+    - For most types of system, the majority of costs are the costs of changing
+      the software after it has gone into use
+  - Software engineering diversity
 
-  - Stand-alone applications
-  - Interactive transaction-based applications
-  - Embedded control systems
-  - Entertainment systems
-  - Systems of systems
+    - Many types of software system, no universal set of software techniques
+      that is applicable to all of these
+    - The software engineering methods and tools used depend on the type of
+      application being developed
+    - Customer background
+
+    - Application types
+
+      - Stand-alone applications
+        - Run on local computer
+      - Interactive transaction-based applications
+        - execute on remote computers
+      - Embedded control systems
+        - Software control systems that control and manage hardware devices
+      - Entertainment systems
+        - Systems that are primarily for personal use and which are intended to
+          entertain the user
+      - Systems of systems
+        - Systems are composed of a number of other software systems
+      - Batch processing systems
+        - These are business systemss that arae designed to process data in
+          large batches
+      - Systems for modeling and simulation
+        - Systems designed for scientists and engineers
+      - Data collection Systems
+        - Collect data from their envionment using a set of sensors and send
+          that data to other systems for proessing
+
+    - Software engineering fundamentals
+      - It applies to all types of software systems
+      - Systems should be developed using a managed and understood development
+        process
+      - Dependability and performance are important for all types of systems
+      - Understanding and managing the software specification and requirements
+        are important
+      - Where appropriate, you should reuse software that has already been
+        developed rather than write new software
 
 - Internet software engineering
 

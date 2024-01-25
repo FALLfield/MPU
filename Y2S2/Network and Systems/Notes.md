@@ -176,3 +176,18 @@
       - The _standard unit_ configuration files are stored under the
         `/lib/systemd/system`
       -
+
+## Chapter 3 Basic Linux Environment
+
+- CLI vs. GUI
+
+  - The linux CLI is a nonrestrictive interface it places no limits on how you
+    use it
+  - A graphcial user interface (GUI) is by definition a very restrictive
+    interface
+
+- CLI
+  - command
+    - Command are what you type on the command line in order to tell linux what
+      you want it to do for you
+    - `command`

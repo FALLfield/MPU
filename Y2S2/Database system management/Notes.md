@@ -125,3 +125,31 @@
     operation
   - Root of tree represents query result
   - Sequence is directed from leaves to root
+
+## Chapter 3 Transaction Mangement
+
+- Transaction Support
+
+  - Transaction Concept
+    - Action, or series of actions, carried out by user or application, which
+      accesses or changes contents of database
+    - A transaction is _complete_, taking a _consistent database_ state into
+      another _consistent database_ state.
+    - A transaction consisting of two _database operations_, and a non-database
+      operation
+      `Read(StaffNo = x, salary) Salary = salary * 1.1 Write(staffNo = x, salary)` -
+      `Read(X)` which transfers the data item X from the database to a variable
+      called X - `Write(X)`,which transfers the variable X into data item X in
+      database
+    - Two main issues to deal with
+      - Concurrent execution of multiple transactions
+        - Most BMS are multi-user systems
+        - The concurrent execution of transactions must be such that each
+          transaction appears to execute _isolation_
+        - **Possible Problems of concurrency**
+          - Lost Update
+          - Temporary Update
+          -
+      - Failures of various kinds, such as hardware failures and system crashes
+
+- ## Properties of Transactions (ACID)

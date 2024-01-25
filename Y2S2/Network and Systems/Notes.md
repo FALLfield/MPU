@@ -145,3 +145,34 @@
         space
       - They are not configurable, and they don't require administrative
         attention
+    - The `init` process
+      - `init` has multiple functions, but it's overarching goal is to make sure
+        **the system runs the right complement of services and daemons at any
+        given time.**
+      - Many Modes to serve this goal
+        - Single-user mode
+        - Multi-user mode
+        - Server mode
+      - `init` takes care of many different startup chores
+        - Setting the name of computer
+        - Setting the time zone
+        - CHecking disks with `fsck`
+        - Mounting file-systems
+        - Removing old files from the `/temp` directory
+        - Configuring network interface
+        - Configuring packet filters
+        - Starting other daemons and network services
+    - `Systemd`
+      - `systemd` is not a single daemon but a collection of programs, daemons,
+        libraries, technologies, and kernel components
+      - The things, or objects that systemd manages are called **units**, and
+        they form the buidlign blocks of systemd
+      - These objects can include services or daemons, devices, file system
+        entities such as mount points, and so on.
+  - Units
+    - **Units are named as their configuration files**
+      - The configuration files are normally stored under:
+        `/etc/systemd/system/`
+      - The _standard unit_ configuration files are stored under the
+        `/lib/systemd/system`
+      -

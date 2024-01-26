@@ -217,12 +217,29 @@
   - Problems
     - The process is not visible
     - System structure tendss to degrade as new increments are added 
+  - Integration and configuration
+    - Based om software reuse where systems are integrated from existing components or application systems
+    - Sometimes called COTS(Commercial-off-the-shelf) systems
+    - Reused elements may be configured to adapt their behavior and functionality to a user requirements
 
+- Agile Development
+  - Specification, design, implementation and testing are interleaved and the outputs from the development process are decided through a process of negotiation during the software development process
+  
 - Agile Methods
-
+  - Focus on the code rather than the design and are based on an iterative approach to software development
   - The aim of agile methods is to reduce overheads in the software process and
     to be albe to respond quickly to changing requirements withoout excessive
     rework
+  - The principles of agile methods
+    - Customer involvement
+    - Incremental delivery
+    - People not process
+    - Embrace change
+    - Maintain simplicity
+  - Applicability
+    - Product development where a software company is developing a small or medium-sized product for sale
+    - Virtually all software products and apps are now developed using an agile approach
+    - Custom system development within an organization, where there is a clear commitment from the customer to become involved in the development process and where there are few external rule and regulations that affect the software 
 
 - Process Improvement
   - Purpose (DCQ)

@@ -118,3 +118,23 @@
   - Variable names must be unique in some procedural programming languages
   - A single procefural program will commonly hold a thousand of vairables and
     many functions
+
+## Chapter3 Design with UML
+
+- Problems
+
+  - Software system is getting increasingly complex. It always require a team of
+    programmers to develop
+  - Each programmer will reponse to part of the system development and share
+    their codes between developers.
+  - Need a simpler and standard way to present the complex system for sharing
+    information
+
+- Model
+
+  - What is modeling?
+    - Modeling consists of building an abstraction of reality.
+
+- What is UML?
+  - Unified Modeling Language is a standard language for specifying,
+    visualizing, constructing, and documenting the artifacts of sftware systems

@@ -182,13 +182,41 @@
     - Participation in the deveolopment of military weapons systems or nuclear
       systems
 
-- Waterfall model phases
+- Software process model
+  - **An abstract representation of a process**
+  - Presents a description of a process from some particular perspective 
+- Software process description
+  - When we describe and discuss processes, we usually talk about the activities in these processes such as **specifying a data model, designing a user interface, etc and the ordering of these activities**
+  - Includes
+    - Products
+    - Roles
+      - which reflect the reponsibilities of the people involved in the process 
+    - Pre- and Post-conditions
 
-  - Requirements analysis and definition
-  - System and software design
-  - Implementation and unit testing
-  - Integration and system testing
-  - Operation maintenance
+
+- Waterfall model 
+  - Phases
+    - Requirements analysis and definition
+    - System and software design
+    - Implementation and unit testing
+    - Integration and system testing
+    - Operation maintenance
+  - Drawbacks
+    - Difficulty of accommondating change after the process is underway
+    - Inflexible partitioning of the project into distinct stages makes it difficult to respond to changing customer requirements
+    - The waterfall model is mostly used for larger systems engineering projects where a system is developed at several sites
+
+- Incremental development
+  - 
+  
+  - benefits
+    - The cost of accommodating changing customer requirements is reduced
+    - It is easier to get customer feedback on the development work that has been done
+    - More rapid delivery and deployment of useful software to the customer is possible 
+  
+  - Problems
+    - The process is not visible
+    - System structure tendss to degrade as new increments are added 
 
 - Agile Methods
 

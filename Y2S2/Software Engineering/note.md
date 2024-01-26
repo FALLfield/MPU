@@ -110,6 +110,7 @@
           that data to other systems for proessing
 
     - Software engineering fundamentals
+
       - It applies to all types of software systems
       - Systems should be developed using a managed and understood development
         process
@@ -119,15 +120,16 @@
       - Where appropriate, you should reuse software that has already been
         developed rather than write new software
 
-- Internet software engineering
+    - Internet software engineering
 
-  - The Web is now a platform for running application
-  - Organizations are increasingly developing web-based systems rather than
-    local systems.
-  - Users do not buy software buy pay according to use.
+      - The Web is now a platform for running application
+      - Organizations are increasingly developing web-based systems rather than
+        local systems.
+      - Users do not buy software buy pay according to use.
 
 - Web based software engineering
 
+  - Software reuse if the dominant approach for constructing web-based systems.
   - Incremental and agile development
   - Service-oriented systems
   - Rich interfaces
@@ -142,13 +144,43 @@
   - Market researching
   - Software specification
   - Software development
+    - Designed and programmed
   - Software validation
+    - Software is cheched to ensure that it is what the customer requires.
   - Software evolution
+
+- General issues that affect software
+
+  - Heterogeneity
+  - Business and social change
+  - Security and trust
+  - Scale
 
 - Software engineering ethics
 
-  - Software engineering involves wider responsibilities than simply the
-    application of technical skills
+  - **Issues of professional responsibility**
+    - Confidentiality
+      - Engineers should normally respect the condidentiality of their employers
+        or clients irrespective of whether or not a formal confidentiality
+        agreement has been signed
+    - Competence
+      - Engineerrs should not misrepresent their level of competence
+    - Intellectual property rights
+    - Computer misuse
+  - ACM/IEEE Code of Ethics
+    - The professional societies in the US have cooperated to produce a code of
+      ethical practice
+    - The Code contains eight Principles related to the behaviour of and
+      decisions made by professional software engineers -Rationale for the code
+      of ethics
+    - Computers have a central and growing role in commerce, industry,
+      government, medicine, education, entertainment and society at large
+  - **Ethical dilemmas**
+    - Disagreement in principle with the policies of senior management
+    - Your employers acts in an unethical way and the releases a safety-critical
+      system without finishing the testing of the system
+    - Participation in the deveolopment of military weapons systems or nuclear
+      systems
 
 - Waterfall model phases
 

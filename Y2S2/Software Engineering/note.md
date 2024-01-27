@@ -240,7 +240,81 @@
     - Product development where a software company is developing a small or medium-sized product for sale
     - Virtually all software products and apps are now developed using an agile approach
     - Custom system development within an organization, where there is a clear commitment from the customer to become involved in the development process and where there are few external rule and regulations that affect the software 
-
+  - Tools
+    - Agile
+    - Extreme
+    - Joint application
+    - Lean
+    - RAD
+    - Scrum
+- Software Process Activities
+  - Reusable Software
+    - Types
+      - Stand-alone application systems
+      - Collections of objects that are developed as a package to be integrated with a component
+        - Like .NET or J2EE
+      - Web services that are developed according to service standards and which are available for remote invocation 
+    - **Key process stages**
+      - Requirements specification
+      - Software discovery and evaluation
+      - Requirements refinement
+      - Application system configuration
+      - Component adaptation and integration
+    - Advantages and disadcantages
+      - Reduced costs and risks as less software is developed from scratch
+      - Faster delivery and deployment of system
+      - But requirements compromises are inevitable so system may not meet real needs of users
+      - Loss of control over evolution of reused system elements 
+- Process activity
+  - Real software processes are **inter-leaved sequences of technical, collaborative and managerial activities** with the overall goal of specifying, designing, implementing and testing a software system. 
+  - The four basic process activities of specification, development, validation and evolution are organized differently in different development processes
+    - Specification
+      - The process of establishing what services are required and the constraints on the system's operation and development
+        - **Requirements elicitation and analysis**
+          - What do the system stakeholders requrie or expect from the system
+        - **Requriements specification**
+          - Defining the requirements in detail
+        - **Requirements validation**
+          - Chechking the validity of the requirements 
+    - Development
+      - Software design
+        - Design a software structure that relizes the specification
+        - activities
+          - Architrctural design
+          - Database design
+          - Interface design
+          - Component selection and design
+      - Implementation
+        - Translate this structure into an executable program
+    - Validation
+      - Intend to show that a system conforms to its specification and meets the requirements of the system customer
+      - Testing stages
+        - Component testing
+        - System testing
+        - Customer testing
+    - Evolution
+      - Software is inherently flexible and can be changed
+      - Main steps
+        - `Define system requirements -> Assess existing systems -> Propose System changes -> Modify systems -> New system -> 'return' to  Assess existing systems`
+- Coping with change
+  - Change leads to rework so the costs of change include both rework as well as the costs of implementing new functionality
+  - **Reduce the cost**
+    - Change anticipation
+      - where the software process includes activities that can anticipate possible changes before significant rework is required
+    - Change tolerance
+      - where the process is designed so that changes can be accommodated at relatively low cost 
+  - Coping with changing requriements
+    - **System prototyping**, where a version of the system or part of the system is developed quickly to check the customer requirements and the feasiblility of desgin decisions
+  - Software prototyping
+    - A prototype is an initial version of a system used to demonstrate concepts and try out design options
+    - Benefits
+      - Improved system usability
+      - A closer match to real needs of customers
+      - Improved design quality
+      - Improved maintainability
+      - Reduced development effort
+    - **Throw-away prototypes**
+      - Prototypes should be discarded after development as they are not a good basiss for a production system 
 - Process Improvement
   - Purpose (DCQ)
     - Enhancing the quality of softwares

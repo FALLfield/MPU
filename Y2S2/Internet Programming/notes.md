@@ -174,7 +174,12 @@
 
 - Defining Models in Python
 
-  - A Django model is a description of the data in database
+  - A Django model is a description of the data in database, represented as
+    Python Code
+  - SQL is _inconsisten across databas plateforms_. If you 're distributing a
+    web application, for example, it's much more pragmatic to distribute a
+    Python module that describes your data layout thatn separate sets of CREATE
+    TABLE statements for MySQL, PostgreSQL, and SQLite.
 
 - Field name
   - Field name restriction

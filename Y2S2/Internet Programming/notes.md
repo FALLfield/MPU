@@ -134,3 +134,39 @@
 ## Chapter3 Templates and class-based
 
 -
+
+## Chapter 4 Models with Django Admin
+
+- ORM (Object Relational Mapper)
+
+  - With Django, querying an underlying database is taken care of by the _ORM_
+  - An ORM tool provides a simple mapping between an object(the 'O' in ORM) and
+    the underlying database compared to traditional SQL
+  - RAW SQL queries are complex than Django ORM
+  - example of SQL
+
+  ```py
+    from django.shortcuts import render
+    import MySQLdb
+
+    def book_list(requrest) :
+        db = MySQLdb.connect(user = 'me', db = 'mydb', passwd = 'secret', host = 'localhost')
+        cursor = db.cursor()
+        cursor.execute('SELECT name FROM books ORDER BY name')
+        names = [row[0] for row in cursor.fetchall()]
+        db.close()
+        return render(request, 'book_list.html', {'names':names})
+  ```
+
+- Problems of raw SQL queries
+
+  - Hard-coding the databse connection parameters. Ideally, these parameters
+    would be stored
+
+- Defining Models in Python
+
+  - A Django model is a description of the data in database
+
+- Field name
+  - Field name restriction
+    - A field name

@@ -128,6 +128,7 @@
 
 ## Chapter 3 Transaction Mangement
 
+- #### Part1
 - Transaction Support
 
   - Transaction Concept
@@ -152,4 +153,41 @@
           -
       - Failures of various kinds, such as hardware failures and system crashes
 
-- ## Properties of Transactions (ACID)
+- Properties of Transactions (ACID)
+
+  - **Atomicity**: _all or nothing_. Either all operations of the transaction
+    are properly reflected in the database or none are.
+    - Exactly once: Keep trying'till acknowledged and serer discards duplicate
+      requests
+  - **Consistency**: _state transformation_. Must transform database from one
+    consistent state to another.
+  - **Isolated**: _no concurrency anomalies_. Partial effects of incomplete
+    transactions should not be visible to other transactions.
+    - Running programs concurretly on same data can create concurrency anomalies
+  - **Durable**: _committed transaction effects persist_. Effects of a committed
+    transaction are permanent and must not be lost because of later failure.
+
+- Transaction Execution
+  - Transaction manager
+  - Scheduler
+  - Recovery manager
+  - Buffer manager
+- Transaction Summary
+
+  - Transaction concept: read and write
+  - Transaction properties (ACID): atomicity, consistency, isolated and durable
+  - Commmit and rollback
+
+- #### Part2
+
+- Concurrency control
+  - Process of managing simultaneous operations on the database without having
+    them interface with one another
+  - Reason ofr Allowing Concurrency
+    - Improved throughput of transactions and system resource utilization
+    - Reduced waiting time of transaction
+- Serial Schedules and Serializability
+- Locking and Two phase locking
+- Deadlock and how it can be resolved
+- Timestamping
+- Optimistic Techniques

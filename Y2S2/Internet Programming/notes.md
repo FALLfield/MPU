@@ -158,10 +158,19 @@
         return render(request, 'book_list.html', {'names':names})
   ```
 
+- Database-driven websites
+  - Most modern web applications foten involves interacting with a database
+  - Behind the scenes, a database-driven website connects to a database server,
+    retrieves some data out of it, and display that data on a web page.
 - Problems of raw SQL queries
 
   - Hard-coding the databse connection parameters. Ideally, these parameters
-    would be stored
+    would be stored in the Django configuration
+  - Boilerplate code: Creating a connection, creating a cursor, executing a
+    statement, and closing the connection. Ideally, all we'd have to do is
+    specify which results we wanted
+  - It ties us to MySQL. If we want to switch from MySQL to PostgreSQL, we'll
+    most likely have to rewrite a large amount of our code.
 
 - Defining Models in Python
 

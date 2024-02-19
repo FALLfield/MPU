@@ -131,9 +131,26 @@
     - views.py
   - ## prject-level urls.p
 
-## Chapter3 Templates and class-based
+## Chapter3 Templates and ClassBasedViews
 
--
+- Templates 
+    - Django uses templates so that individual HTML files can be served by a view to a web page specified by the URL 
+    - A Django template is a text document, or a normal Python string, that is marked up using the Django template language, with the intention to separate the presentation of a document from its data 
+        - **A template can contain template tags and variables**
+    - Template Filters
+        - Template filters are simple ways of altering the value of variables before they're displayed. Like:
+            ``{{name | lower}}``
+        - Filters can be chained, that takes the first element in a list and converts it to uppercase 
+            ``{{my_list|first|upper}}``
+    - Template tags
+        - if/else
+            ``` {% if athlete_list %}
+                    Numver of athletes: {{athlete_list | length}}
+               {% elif athlete_in_locker_room_list %}
+                    <p>Athletes should be out of the locker room soom! </p>
+            ```
+        - for
+            ``{% for key, value in data.items %} {% endfor %}``
 
 ## Chapter 4 Models with Django Admin
 

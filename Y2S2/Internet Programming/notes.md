@@ -151,6 +151,23 @@
             ```
         - for
             ``{% for key, value in data.items %} {% endfor %}``
+        - for - an optional {%empty%} clause
+            ``{% for athlete in athelete_list %} ... {% empty %} ... {% endfor %}`` 
+            just like an if\else clause, empty points the situation that empty content in list 
+        - forloop tamplate variable
+            - forloop.counter 
+                - Always set to an integer representing the number of times the loop has been entered
+            - forloop.revcounter
+            - forloop.revcounter0
+            - forloop.first
+            - forloop.last
+            - forloop.parentloop
+                - A reference to the forloop object for the parent loop 
+        - Comment
+            - ``{# ... #}`` for one line
+            - ``{% comment %} .... {% comment %}`` for multiple lines 
+
+
 
 ## Chapter 4 Models with Django Admin
 

@@ -132,8 +132,8 @@
 - Transaction Support
 
   - Transaction Concept
-    - Action, or series of actions, carried out by user or application, which
-      accesses or changes contents of database
+    - **Action, or series of actions, carried out by user or application, which
+      accesses or changes contents of database**
     - A transaction is _complete_, taking a _consistent database_ state into
       another _consistent database_ state.
     - A transaction consisting of two _database operations_, and a non-database
@@ -181,12 +181,24 @@
 - #### Part2
 
 - Concurrency control
-  - Process of managing simultaneous operations on the database without having
-    them interface with one another
+  - **Process of managing simultaneous operations on the database without having
+    them interface with one another**
   - Reason ofr Allowing Concurrency
     - Improved throughput of transactions and system resource utilization
     - Reduced waiting time of transaction
+  - Three examples of potential problems caused by concurrency
+    - Lost update problem
+    - Temporary update problem
+    - incorrect summary problem
 - Serial Schedules and Serializability
+  - A Schedule is a sequential order of the instructions(R/W/A/C) of n transactions such that the ordering of the instructions of each transaction is preserved.
+  - Serial Schedule
+    - A schedule that does not interleave the actions of different transactions
+  - Non-serial Schdules
+    - A schedule where the operations from a set of concurrent transactions are interleaved
+  - A schedule S is serializable if the outcome of its execution is the same as the outcome of at least one serial schedule constituted by the same transactions of S
+  - Read-write COnflict Rules
+    - Two actions are conflicting in a schedule if they belong to different transactions, they operate on the same element, and one of them is a write.
 - Locking and Two phase locking
 - Deadlock and how it can be resolved
 - Timestamping

@@ -201,7 +201,12 @@
     - Django uses templates to generate THML files so that individual HTML files can be served by a view to a web page specified by the URL 
     - Extending Templates
         - One place for our header code that would be inherited by all other templates 
-
+        - The content of base.html is as follows
+            ```HTML 
+            < !-- templates/base.html -- >
+            <header>
+                <a href="{% url 'home' %}"Home</a> | <a href="{%url 'about'%}About</a>"
+            <header>```
 ## Chapter 4 Models with Django Admin
 
 - ORM (Object Relational Mapper)

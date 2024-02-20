@@ -165,9 +165,42 @@
                 - A reference to the forloop object for the parent loop 
         - Comment
             - ``{# ... #}`` for one line
-            - ``{% comment %} .... {% comment %}`` for multiple lines 
+            - ``{% comment %} .... {% comment %}`` for multiple lines
+    - Normally, Django looks within each app for templates
+        - If we want to customize the templates path, *we should change the TEMPLATES structure's DIRS*
+        - Firstly, create a project-level folder called templates(myTestSite/templates) and an HTML file called home.html
+        - Under DIRS, use [BASE_DIR/'templates']
+            - BASE_DIR is a variable that stores the path to the directory in which your project's setting.py module is contained 
 
+- Class-Based Views: TemplateView
+    - example
+        ```python 
+        #pages/views.py
+        from django.views.generic import TemplateView
+        class HomePageView(TemplateView):
+            template_name = 'home.html' ```
+    - then change URLs 
+        - example
+            ```python
+            #pages_project/urls.py
+            from django.contrib import admin
+            from django.urls import path, include
+            urlpatterns = [
+                path('admin/', admin.site.urls),
+                path('',include('pages.urls')),
+            ]```
 
+            ```python
+            #pages/urls.py 
+            from django.urls import path
+            from . import views
+            urlpatterns = [
+                path('',views.HomePageView.as_view(), name='home'),
+            ]```
+- Summary
+    - Django uses templates to generate THML files so that individual HTML files can be served by a view to a web page specified by the URL 
+    - Extending Templates
+        - One place for our header code that would be inherited by all other templates 
 
 ## Chapter 4 Models with Django Admin
 

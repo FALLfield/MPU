@@ -255,4 +255,5 @@
 
 - Field name
   - Field name restriction
-    - A field name
+    - A field name cannot be  a Python reserved word
+    - A field name cannot contain more than one underscore in a row 

@@ -191,3 +191,11 @@
     - Command are what you type on the command line in order to tell linux what
       you want it to do for you
     - `command`
+
+## Chapter 5 process control
+
+- Process: a process represents a running program (instantiation of program)
+  - From the kernel's perspective, a process is
+    - An address space
+    - Set of data structures
+      - The process's address space map, Current status, Execution priority, Resources used, Signal mask, The owner, The files and network ports has opened.

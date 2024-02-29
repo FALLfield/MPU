@@ -179,7 +179,7 @@
 
 ## Chapter 3 Basic Linux Environment
 
-- CLI vs. GUI
+- CLI vs. GUI2
 
   - The linux CLI is a nonrestrictive interface it places no limits on how you
     use it
@@ -199,3 +199,4 @@
     - An address space
     - Set of data structures
       - The process's address space map, Current status, Execution priority, Resources used, Signal mask, The owner, The files and network ports has opened.
+  - To create a new process, an existing process copies itself with the fork system call

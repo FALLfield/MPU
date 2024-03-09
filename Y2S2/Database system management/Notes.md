@@ -72,7 +72,7 @@
     - ∏<sub>staffNo,job,dept</sub>(S) ⨯ ∏<sub>dept, name</sub>(D)
     - 与之对应的是JOIN
 - Join
-  - Natural Join
+  - Natural Join 
     - T ⨝ U
   - Semijoin
     - T ▷<sub>B</sub> U

@@ -138,3 +138,45 @@
 - What is UML?
   - Unified Modeling Language is a standard language for specifying,
     visualizing, constructing, and documenting the artifacts of sftware systems
+
+## Chapter5 Design Principles
+
+- Definition
+  - Design principle is a basic tool or technique that can be applied to designing or writing code to make that code more maintainable, flexible, and extensible
+- Types
+
+  - Common design principles are:
+    - KISS, DRY, C&C, etc.
+  - Five key design principles are:
+    - SOLID:SRP, OCP, LSP, ISP, DIP
+
+- Common design principles
+
+  - KEEP IT SIMPLE, STUPID
+    - Most of the systems work best if they are kept simple rather than made complicated
+    - **Simplicity** should be a key goal in design and unnecessary complexity should be avoided
+  - DON'T REPEAT YOURSELF
+    - It looks pretty straight-forward but turns out to be critical in coding for easy to maintain and **reuse**
+  - COMPLETE AND CONSISTENT
+    - Each class should have exactly one role but similar type of behaviors can also add to that class to make it more complete
+
+- CODING CONSISTENTLY
+
+  - **The naming convention of the methods should be in the same manner**
+  - **The parameters they(the methods) take should bre in the same order**
+  - **The naming for methods and variables should be meaningful**
+
+- Five key design principles
+  - S.O.L.I.D
+    - This is an acronym for the first five object oriented design principles by Robert C.Martin
+    - SRP: Single Responsibility Principle
+      - A class should have one and only one reason to change, meaning that a class should have only one job
+      - Breaking a big program into objects according to _responsibility_
+    - OCP:Open-Closed Principle
+      - Objects or entities should be open for extension but closed for modification
+    - LSP: Liskov Substitution Principle
+      - Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program
+    - ISP: Interface Segregation Principle
+      - A client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use
+    - DIP: Dependency Inversion Principle
+      - Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions

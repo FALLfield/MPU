@@ -72,7 +72,7 @@
     - ∏<sub>staffNo,job,dept</sub>(S) ⨯ ∏<sub>dept, name</sub>(D)
     - 与之对应的是JOIN
 - Join
-  - Natural Join 
+  - Natural Join
     - T ⨝ U
   - Semijoin
     - T ▷<sub>B</sub> U
@@ -203,3 +203,33 @@
 - Deadlock and how it can be resolved
 - Timestamping
 - Optimistic Techniques
+
+## Chapter 4 SQL Data Definition Language
+
+- Data definition
+
+  - SQL DDL allows database objects such as schemas, domains, tables, views, and indexes to be created and destroyed.
+  - Syntax example
+    `CREATE TABLE [schema] `
+
+- Create a Table
+
+  - Creates a table with one or more columns of the specified `dataType`
+  - With **NOT NULL**, system rejects any attempts to insert a null in the column
+  - Can specify a **DEFAULT** calue for the column
+  - A primary key can not be **NOT NULL**
+
+  - Integrity constraint
+    - Required Data NOT NULL
+    - Domain constraints-check
+    - Entity integrity- PRIMARY KEY
+    - Referential integrity : FOREIGN KEY
+    - General constraints
+  - Primary key of a table must contain a unique, not-null value for each row. - `CREATE TABLE dept(
+    deptno     NUMBER(2),
+    dname      VARCHAR2(2)    NOT NULL,
+    loc        VARCHAR2(13)
+    CONSTRAINT dept_name_uk    UNIQUE(dname),
+    CONSTRAINT dept_deptno_pk     PRIMARY KEY(deptno),
+    CONSTRAINT dept_name_nn    NOT NULL(dname),
+)`

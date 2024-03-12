@@ -269,3 +269,23 @@
     - Set of data structures
       - The process's address space map, Current status, Execution priority, Resources used, Signal mask, The owner, The files and network ports has opened.
   - To create a new process, an existing process copies itself with the fork system call
+
+## File system
+
+- The file system cna be thought of as comprising five main components
+
+  - Data Storage: A structured place to store and retrieve data; this is the primary function of any file system.
+  - A namespace: a way to name things and organize them in the hierarchy
+  - An API: a set of system calls for navigating and manipulating file system objects
+  - Security models: schemes for protecting, hiding, and sharing things
+  - AN implementation: software to tie the logical model to the hardware.
+
+- Disk partitions
+
+  - Drive are be divided into one or more partitions that are teated independently
+  - Normally has root partition, swap, user, boot
+  - **LVM** lets you combine partitions and drives to present an aggregate volume as a regular block device(just like a disk or partition)
+
+- Some commands related to files
+  - `hdparm` will do simple performance tests
+  -

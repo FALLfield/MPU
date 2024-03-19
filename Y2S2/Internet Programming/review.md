@@ -129,9 +129,36 @@ admin.site.register(modelname)`
 
   29. What are the steps to add the Login/Logout functions using Django's default user model?
 
+
+      - Add a project-level urlpattern for the auth system
+      - Creating the login template, the login template being rendered
+      - Edit settings.py to set where to redirect the user like ``LOGIN_REDIRECT_URL='home', LOGOUT_REDIRECT_URL='home'``
+      - Provide a link to login
+
   30. What are the steps to add the Sign Up function using Django's default user model?
+
+
+      - Create an application, like 'acounts'
+      - Add a project-level urlpattern to point to this new app
+      - Create the file accounts/urls.py with the url mapping to handle sign up
+      - Write the logic for the view SignUpView as stated in step 3 above, in views.py.
+          ``from django.contrib.auth.forms import UserCreationForm
+              from django.urls import reverse_lazy
+              class SignUpView(generic CreateView):
+              form_class = UserCreationForm
+              success_url = reverse_lazy('login')
+              template_name = 'signup.html'``
+      - Create the template file for the presentation of the signup page
+          ``<form method = "post">{% csrf_token %}
+              {{form.as_p}}
+            <button type="submit"> Signup</button>
+            </form>``
+      - Provide a link
 
   31. Write the template with the necessary template tags and template variables such that
 
   - for a login user, the username and a logout link is displayed
+    `{% if user.is_authenticated %}
+      <p>{{user.username}}</p>
+      <p><a href="{% url 'logout' %}">logout</a><p>`
   - for a logout user, a login link is displayed

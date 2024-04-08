@@ -9,42 +9,64 @@ create table Employee(
     Gender char(1),
     Salary number(7),
     Bonus number(4),
-    DID number(3),
-    constraint Employee_EID_pk primary key (EID),
-    constraint Employee_DID_fk foreign key (DID) references Department(DID),
-);
+    constraint Employee_EID_pk primary key (EID));
 create table Department(
     DID number(3),
-    Name varchar2(20),
+    Name varchar2(40),
     Mgr_EID number(3),
-    Mgr_Start_Date date,
+    Mgr_Start_Date Date,
     constraint Department_DID_pk primary key (DID),
-    constraint Department_Mgr_EID_fk foreign key (Mgr_EID) references Employee(EID),
-);
+    constraint Department_Mgr_EID_fk foreign key (Mgr_EID) references Employee(EID));
+
+alter table Employee add(
+    DID number(3),
+    constraint Employee_DID_fk foreign key (DID) references Department (DID));
 create table Project(
     PID number(1),
     Name varchar2(30),
     DID number(3),
     constraint Project_PID_pk primary key (PID),
-    constraint Project_DID_fk foreign key (DID) references Department(DID),
-);
+    constraint Project_DID_fk foreign key (DID) references Department(DID));
 create table Work_On(
     EID number(3),
     PID number(1),
     Hours number(3),
-    constraint Work_On_EP_pk primary key (EID, PID),
+    constraint Work_On_EPID_pk primary key (EID, PID),
     constraint Work_On_EID_fk foreign key (EID) references Employee(EID),
-    constraint Work_On_PID_fk foreign key (PID) references Project(PID),
-);
+    constraint Work_On_PID_fk foreign key (PID) references Project(PID));
+
+insert into Department
+values(
+        10,
+        'Consumer Products Department',
+        NULL,
+        DATE '1994-10-01'
+    );
+insert into Department
+values(
+        11,
+        'Industrial Products Department',
+        NULL,
+        DATE '1995-05-01'
+    );
+insert into Department
+values(
+        12,
+        'Research Department',
+        NULL,
+        DATE '1990-06-15'
+    );
+
 insert into Employee
 values(
         123,
         'Wilson',
         'Ho',
         '163 Old Road, Bayswater, London',
-        DATE(1955 -12 -10),
+        DATE '1955 -12 -10',
         'M',
         15000,
+        NULL,
         12
     );
 insert into Employee
@@ -52,11 +74,11 @@ values(
         456,
         'Mary',
         'Law',
-        '134,Leicester Square',
-        'London',
-        DATE(1965 -10 -05),
+        '134,Leicester Square,London',
+        DATE '1965 -10 -05',
         'M',
         19000,
+        NULL,
         11
     );
 insert into Employee
@@ -64,10 +86,11 @@ values(
         789,
         'Paul',
         'Smith',
-        "356 The Queen's Walk,Lodon",
-        DATE(1975 -08 -06),
+        '356 The Queen''s Walk,Lodon',
+        DATE '1975 -08 -06',
         'F',
         14000,
+        NULL,
         11
     );
 insert into Employee
@@ -76,9 +99,10 @@ values(
         'John',
         'Simon',
         '883 Fair Road, Coventry',
-        DATE(1960 -09 -07),
+        DATE '1960 -09 -07',
         'M',
         30000,
+        NULL,
         12
     );
 insert into Employee
@@ -87,7 +111,7 @@ values(
         'Lucas',
         'Tse',
         '569 Heddon Street, Mayfair, London',
-        DATE(1970 -04 -02),
+        DATE '1970 -04 -02',
         'M',
         20000,
         5000,
@@ -99,7 +123,7 @@ values(
         'Rebecca',
         'Sam',
         '10 Grove Lane, Ipswich, Suffolk',
-        DATE(1950 -01 -08),
+        DATE '1950 -01 -08',
         'F',
         35000,
         2500,
@@ -111,9 +135,10 @@ values(
         'Terry',
         'Shooter',
         '26 York Street, London',
-        DATE(1973 -05 -30),
+        DATE '1973 -05 -30',
         'M',
         23000,
+        NULL,
         12
     );
 insert into Employee
@@ -122,9 +147,10 @@ values(
         'Lawrence',
         'Yip',
         '11-15 Betterton Street, Covent Garden, London',
-        DATE(1953 -02 -27),
+        DATE '1953 -02 -27',
         'M',
         32000,
+        NULL,
         11
     );
 insert into Employee
@@ -133,9 +159,10 @@ values(
         'Gary',
         'Marker',
         '221 Holloway Road, London',
-        DATE(1963 -11 -16),
+        DATE '1963 -11 -16',
         'F',
         26000,
+        NULL,
         12
     );
 insert into Employee
@@ -144,32 +171,17 @@ values(
         'James',
         'Steve',
         '321 Voctory Road, Coventry',
-        DATE(1971 -12 -31),
+        DATE '1971 -12 -31',
         'M',
         28000,
+        NULL,
         12
     );
-insert into Department
-values(
-        10,
-        'Consumer Products Department',
-        333,
-        DATE(1994 -10 -01)
-    );
-insert into Department
-values(
-        11,
-        'Industrial Products Department',
-        654,
-        DATE(1995 -05 -01)
-    );
-insert into Department
-values(
-        12,
-        'Research Department',
-        111,
-        DATE(1990 -06 -15)
-    );
+
+update Department set Mgr_EID=333 where DID = 10;
+update Department set Mgr_EID=654 where DID = 11;
+update Department set Mgr_EID=111 where DID = 12;
+
 insert into Project
 values(1, 'Mobile Phone', 10);
 insert into Project
@@ -204,3 +216,8 @@ insert into Work_On
 values(321, 1, 15);
 insert into Work_On
 values(321, 2, 10);
+
+
+SELECT * FROM  Employee;
+
+

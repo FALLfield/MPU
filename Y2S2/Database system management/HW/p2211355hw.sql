@@ -217,7 +217,22 @@ values(321, 1, 15);
 insert into Work_On
 values(321, 2, 10);
 
-
+-- 1.List all the information in the Employee table.
 SELECT * FROM  Employee;
+
+-- 2.List the employees who live in London.
+SELECT * FROM Employee WHERE Address like'%London%';
+
+-- 3.List the full information of all the managers that were employed in 1995.
+SELECT Employee.*, Department.name, Department.Mgr_Start_Date FROM Employee JOIN Department on Employee.EID = Department.Mgr_EID WHERE EXTRACT(YEAR FROM Mgr_Start_Date) = 1995;
+
+-- 4.List the full information of all the employees that were born in 70s.
+SELECT * FROM Employee WHERE EXTRACT(YEAR FROM DOB) >= 1970 AND EXTRACT(YEAR FROM DOB) <= 1979;
+
+-- 5.List the full information of all the employees that were born in August.
+SELECT * FROM Employee WHERE EXTRACT(MONTH FROM DOB) = 8;
+
+-- 6.List the full information of all the employees whose age is greater than 50.
+SELECT * FROM Employee WHERE YEAR(CURRENT_DATE) - YEAR(DOB) > 50 OR ( YEAR(CURRENT_DATE) - YEAR(DOB) = 50 AND MONTH(CURRENT_DATE) > MONTH(DOB)) OR (YEAR(CURRENT_DATE) - YEAR(DOB) = 50 AND MONTH(CURRENT_DATE) = MONTH(DOB) AND DAY(CURRENT_DATE) >= DAY(DOB));
 
 

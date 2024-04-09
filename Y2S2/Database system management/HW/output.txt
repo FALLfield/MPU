@@ -1,0 +1,48 @@
+1. List all the information in the Employee table.
+SQL> select * from Employee;
+EID        FNAME     LNAME     ADDRESS						                      DOB	   G	 SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+123        Wilson    Ho        163 Old Road, Bayswater, London			          10-DEC-55 M	  15000		           12
+111        John      Simon     883 Fair Road, Coventry				              07-SEP-60 M	  30000		           12
+222        Lucas     Tse       569 Heddon Street, Mayfair, London		          02-APR-70 M	  20000       5000	   10
+333        Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			          08-JAN-50 F	  35000       2500	   10
+987        Terry     Shooter   26 York Street, London				              30-MAY-73 M	  23000		           12
+654        Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	  27-FEB-53 M	  32000		           11
+321        Gary      Marker    221 Holloway Road, London			              16-NOV-63 F	  26000		           12
+881        James     Steve     321 Voctory Road, Coventry			              31-DEC-71 M	  28000		           12
+456        Mary      Law       134,Leicester Square,London			              05-OCT-65 M	  19000		           11
+789        Paul      Smith     356 The Queen's Walk,Lodon			              06-AUG-75 F	  14000		           11
+
+2. List the employees who live in London.
+SQL> SELECT * FROM Employee WHERE Address like'%London%';
+EID        FNAME     LNAME     ADDRESS						                      DOB	    G	 SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+123        Wilson    Ho        163 Old Road, Bayswater, London			          10-DEC-55 M	  15000		           12
+222        Lucas     Tse       569 Heddon Street, Mayfair, London		          02-APR-70 M	  20000       5000	   10
+987        Terry     Shooter   26 York Street, London				              30-MAY-73 M	  23000		           12
+654        Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	  27-FEB-53 M	  32000		           11
+321        Gary      Marker    221 Holloway Road, London			              16-NOV-63 F	  26000		           12
+456        Mary      Law       134,Leicester Square,London			              05-OCT-65 M	  19000		           11
+
+3. List the full information of all the managers that were employed in 1995.
+SQL> SELECT Employee.*, Department.name, Department.Mgr_Start_Date FROM Employee JOIN Department on Employee.EID = Department.Mgr_EID WHERE EXTRACT(YEAR FROM Mgr_Start_Date) = 1995;
+EID         FNAME     LNAME     ADDRESS						                      DOB	    G	 SALARY      BONUS	  DID                        NAME					MGR_START
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ---------- ---------------------------------------- ---------
+654         Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	  27-FEB-53 M	  32000		          11            Industrial Products Department		01-MAY-95
+
+4. List the full information of all the employees that were born in 70s.
+SQL> SELECT * FROM Employee WHERE EXTRACT(YEAR FROM DOB) >= 1970 AND EXTRACT(YEAR FROM DOB) <= 1979;
+EID         FNAME     LNAME     ADDRESS						                        DOB	    G	 SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+222         Lucas     Tse       569 Heddon Street, Mayfair, London		          02-APR-70 M	  20000       5000	   10
+987         Terry     Shooter   26 York Street, London				              30-MAY-73 M	  23000		           12
+881         James     Steve     321 Voctory Road, Coventry			              31-DEC-71 M	  28000		           12
+789         Paul      Smith     356 The Queen's Walk,Lodon			              06-AUG-75 F	  14000		           11
+
+5. List the full information of all the employees that were born in August.
+SQL> SELECT * FROM Employee WHERE EXTRACT(MONTH FROM DOB) = 8;
+EID        FNAME     LNAME     ADDRESS						                        DOB	    G	 SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+789         Paul      Smith     356 The Queen's Walk,Lodon			              06-AUG-75 F	  14000		          11
+
+6. List the full information of all the employees whose age is greater than 50.

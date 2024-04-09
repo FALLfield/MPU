@@ -233,6 +233,35 @@ SELECT * FROM Employee WHERE EXTRACT(YEAR FROM DOB) >= 1970 AND EXTRACT(YEAR FRO
 SELECT * FROM Employee WHERE EXTRACT(MONTH FROM DOB) = 8;
 
 -- 6.List the full information of all the employees whose age is greater than 50.
-SELECT * FROM Employee WHERE YEAR(CURRENT_DATE) - YEAR(DOB) > 50 OR ( YEAR(CURRENT_DATE) - YEAR(DOB) = 50 AND MONTH(CURRENT_DATE) > MONTH(DOB)) OR (YEAR(CURRENT_DATE) - YEAR(DOB) = 50 AND MONTH(CURRENT_DATE) = MONTH(DOB) AND DAY(CURRENT_DATE) >= DAY(DOB));
+SELECT * FROM Employee WHERE
+    EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM DOB) > 50
+    OR (EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM DOB) = 50
+        AND EXTRACT(MONTH FROM CURRENT_DATE) > EXTRACT(MONTH FROM DOB))
+    OR (EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM DOB) = 50
+        AND EXTRACT(MONTH FROM CURRENT_DATE) = EXTRACT(MONTH FROM DOB)
+        AND EXTRACT(DAY FROM CURRENT_DATE) >= EXTRACT(DAY FROM DOB));
+    
+-- 7.List the name of the manager of each department.
+SELECT CONCAT(Employee.Fname, Employee.Lname) AS mgr_name, Department.name FROM Employee JOIN Department ON Employee.EID = Department.Mgr_EID;
+
+-- 8.List the name of the youngest manager.
+SELECT CONCAT(e.Fname,e.Lname) AS youngest_mgr 
+FROM Employee e INNER JOIN Department d ON e.EID = d.Mgr_EID 
+WHERE e.DOB=(SELECT MAX(e.DOB) FROM Employee e INNER JOIN Department d ON e.EID = d.Mgr_EID);
+
+-- 9.How many employees are there and they are living in London?
 
 
+-- 10.How many male and female employees are there in each department? The department names should be shown in the result.
+SELECT d.name, 
+       SUM(CASE WHEN e.Gender = 'M' THEN 1 ELSE 0 END) AS MaleCount,
+       SUM(CASE WHEN e.Gender = 'F' THEN 1 ELSE 0 END) AS FemaleCount
+FROM Department d
+JOIN Employee e ON d.DID = e.DID
+GROUP BY d.name;
+
+-- Find minimum, maximum, and average employee salary
+SELECT MAX(Salary) AS maximum, MIN(Salary) AS minimum, SUM(Salary)/COUNT(Salary) AS average
+FROM (
+    SELECT Salary FROM Employee ORDER BY Salary DESC
+) Salary;

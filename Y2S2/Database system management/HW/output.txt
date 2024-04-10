@@ -163,3 +163,76 @@ WHERE bonus IS NULL;  2    3
   NO_BONUS
 ----------
 	8
+
+16. List the total income of each employee. The employee names should be shown in the result.
+
+SQL> SELECT CONCAT(Fname, Lname) AS name, (COALESCE(bonus,0) + Salary) AS income
+FROM Employee;  2  
+
+NAME		      INCOME
+------------------ ----------
+WilsonHo		15000
+JohnSimon		30000
+LucasTse		25000
+RebeccaSam		37500
+TerryShooter		23000
+LawrenceYip		32000
+GaryMarker		26000
+JamesSteve		28000
+MaryLaw 		19000
+PaulSmith		14000
+
+10 rows selected.
+
+17.Find out the number of employees who did not work on any project.
+SQL> SELECT COUNT(*) as no_work
+FROM Employee e 
+LEFT JOIN Work_On w ON w.EID = e.EID 
+WHERE w.PID IS NULL;  2    3    4  
+
+   NO_WORK
+----------
+	1
+
+18. Who is the youngest female employee? Full information should be shown.
+SQL> SELECT *
+FROM Employee
+WHERE DOB = (
+    SELECT MIN(DOB)
+    FROM Employee
+    WHERE Gender = 'F'
+);  2    3    4    5    6    7  
+
+       EID FNAME     LNAME     ADDRESS						                        DOB	    G	 SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			          08-JAN-50 F	  35000       2500	   10
+
+19. Find out the average age of each department. The department names should be shown in the result.
+SQL> SELECT ROUND(SUM(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM e.DOB))/COUNT(e.EID)) as avg_age, d.name 
+FROM Employee e 
+JOIN Department d ON e.DID = d.DID 
+GROUP BY d.name;  2    3    4  
+
+   AVG_AGE NAME
+---------- ----------------------------------------
+	60 Research Department
+	64 Consumer Products Department
+	60 Industrial Products Department
+
+20. Who has the highest accumulated project hours? Full information should be shown
+SQL> SELECT e.*, subquery.max_hours
+FROM Employee e
+JOIN (
+    SELECT w.EID, SUM(w.hours) AS max_hours
+    FROM Work_On w
+    GROUP BY w.EID
+) subquery ON e.EID = subquery.EID
+WHERE subquery.max_hours = (
+    SELECT MAX(SUM(w.hours))
+    FROM Wor  2  k_On w
+    GROUP BY w.EID
+);  3    4    5    6    7    8    9   10   11   12  
+
+       EID FNAME     LNAME     ADDRESS						                        DOB	    G	 SALARY      BONUS	  DID	    MAX_HOURS
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ---------- ----------
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			          08-JAN-50 F	  35000       2500	   10	      40

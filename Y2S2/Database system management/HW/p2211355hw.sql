@@ -288,3 +288,49 @@ WHERE bonus IS NOT NULL;
 SELECT COUNT(*) as no_bonus
 FROM Employee
 WHERE bonus IS NULL;
+
+-- 16. List the total income of each employee. The employee names should be shown in the result.
+SELECT CONCAT(Fname, Lname) AS name, (COALESCE(bonus,0) + Salary) AS income
+FROM Employee;
+
+-- 17.Find out the number of employees who did not work on any project.
+SELECT COUNT(*) as no_work
+FROM Employee e 
+LEFT JOIN Work_On w ON w.EID = e.EID 
+WHERE w.PID IS NULL;
+
+-- 18. Who is the youngest female employee? Full information should be shown.
+SELECT *
+FROM Employee
+WHERE DOB = (
+    SELECT MIN(DOB)
+    FROM Employee
+    WHERE Gender = 'F'
+);
+
+-- 19. Find out the average age of each department. The department names should be shown in the result.
+SELECT ROUND(SUM(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM e.DOB))/COUNT(e.EID)) as avg_age, d.name 
+FROM Employee e 
+JOIN Department d ON e.DID = d.DID 
+GROUP BY d.name;
+
+--20. Who has the highest accumulated project hours? Full information should be shown
+SELECT e.*, subquery.max_hours
+FROM Employee e
+JOIN (
+    SELECT w.EID, SUM(w.hours) AS max_hours
+    FROM Work_On w
+    GROUP BY w.EID
+) subquery ON e.EID = subquery.EID
+WHERE subquery.max_hours = (
+    SELECT MAX(SUM(w.hours))
+    FROM Work_On w
+    GROUP BY w.EID
+);
+
+-- 21. List all the employees whose age is greater than the average age of all the employees.
+SELECT *
+FROM Employee
+WHERE DOB > (SELECT ROUND(SUM(EXTRACT(YEAR_MONTH_DAY FROM CURRENT_DATE) - e.DOB)/COUNT(e.EID)) as avg_age
+FROM Employee e ):
+

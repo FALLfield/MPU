@@ -129,4 +129,37 @@ FROM (
 35000	    14000	  24200
 
 12. Find number of employees and sum of their salaries in each department. The department names should be shown in the result.
+SQL> SELECT COUNT(e.EID) as employee_num, SUM(e.Salary) as sal_sum, d.name
+FROM Employee e 
+JOIN Department d ON e.DID = d.DID 
+GROUP BY d.name;  2    3    4  
 
+EMPLOYEE_NUM	SAL_SUM NAME
+------------ ---------- ----------------------------------------
+	  5	      122000    Research Department
+	  2	      55000     Consumer Products Department
+	  3	      65000     Industrial Products Department
+
+13.List the department which employs the lowest number of employees.
+LOWEST_EMPLOYEE_NUM
+-------------------
+		 2
+
+14. List the employees who have bonus?
+SQL> SELECT CONCAT(Fname, Lname) as name 
+FROM Employee
+WHERE bonus IS NOT NULL;  2    3  
+
+NAME
+------------------
+LucasTse
+RebeccaSam
+
+15.Find out how many employees do not have bonus?
+SQL> SELECT COUNT(*) as no_bonus
+FROM Employee
+WHERE bonus IS NULL;  2    3  
+
+  NO_BONUS
+----------
+	8

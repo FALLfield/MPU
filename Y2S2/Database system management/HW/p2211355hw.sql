@@ -271,4 +271,20 @@ FROM (
 SELECT COUNT(e.EID) as employee_num, SUM(e.Salary) as sal_sum, d.name
 FROM Employee e 
 JOIN Department d ON e.DID = d.DID 
-GROUP BY e.DID;
+GROUP BY d.name;
+
+-- 13. List the department which employs the lowest number of employees.
+SELECT MIN(COUNT(e.EID)) as lowest_employee_num
+FROM Employee e 
+JOIN Department d ON e.DID = d.DID 
+GROUP BY d.name;
+
+-- 14. List the employees who have bonus?
+SELECT CONCAT(Fname, Lname) as name 
+FROM Employee
+WHERE bonus IS NOT NULL;
+
+-- 15.Find out how many employees do not have bonus?
+SELECT COUNT(*) as no_bonus
+FROM Employee
+WHERE bonus IS NULL;

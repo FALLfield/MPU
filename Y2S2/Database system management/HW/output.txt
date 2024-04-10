@@ -98,6 +98,11 @@ YOUNGEST_MGR
 JohnSimon
 
 9. How many employees are there and they are living in London?
+SQL> SELECT COUNT(*) emmployee_num FROM Employee WHERE Address LIKE '%London%';
+
+EMMPLOYEE_NUM
+-------------
+	   6
 
 10.How many male and female employees are there in each department? The department names should be shown in the result.
 SQL> SELECT d.name, 
@@ -122,3 +127,6 @@ FROM (
  MAXIMUM    MINIMUM	  AVERAGE
 ---------- ---------- ----------
 35000	    14000	  24200
+
+12. Find number of employees and sum of their salaries in each department. The department names should be shown in the result.
+

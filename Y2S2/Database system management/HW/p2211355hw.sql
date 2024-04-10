@@ -250,6 +250,7 @@ FROM Employee e INNER JOIN Department d ON e.EID = d.Mgr_EID
 WHERE e.DOB=(SELECT MAX(e.DOB) FROM Employee e INNER JOIN Department d ON e.EID = d.Mgr_EID);
 
 -- 9.How many employees are there and they are living in London?
+SELECT COUNT(*) emmployee_num FROM Employee WHERE Address LIKE '%London%';
 
 
 -- 10.How many male and female employees are there in each department? The department names should be shown in the result.
@@ -260,8 +261,14 @@ FROM Department d
 JOIN Employee e ON d.DID = e.DID
 GROUP BY d.name;
 
--- Find minimum, maximum, and average employee salary
+-- 11. Find minimum, maximum, and average employee salary
 SELECT MAX(Salary) AS maximum, MIN(Salary) AS minimum, SUM(Salary)/COUNT(Salary) AS average
 FROM (
     SELECT Salary FROM Employee ORDER BY Salary DESC
 ) Salary;
+
+-- 12. Find number of employees and sum of their salaries in each department. The department names should be shown in the result.
+SELECT COUNT(e.EID) as employee_num, SUM(e.Salary) as sal_sum, d.name
+FROM Employee e 
+JOIN Department d ON e.DID = d.DID 
+GROUP BY e.DID;

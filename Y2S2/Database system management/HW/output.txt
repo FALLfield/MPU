@@ -233,6 +233,39 @@ WHERE subquery.max_hours = (
     GROUP BY w.EID
 );  3    4    5    6    7    8    9   10   11   12  
 
-       EID FNAME     LNAME     ADDRESS						                        DOB	    G	 SALARY      BONUS	  DID	    MAX_HOURS
+       EID FNAME     LNAME     ADDRESS						     DOB	 G  SALARY      BONUS	DID	  MAX_HOURS
 ---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ---------- ----------
-       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			          08-JAN-50 F	  35000       2500	   10	      40
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			     08-JAN-50 F  35000       2500	       10	      40
+
+21. List all the employees whose age is greater than the average age of all the employees.
+SQL> select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select avg(trunc(months_between(sysdate,DOB)/12)) from Employee);  2  
+
+       EID FNAME     LNAME     ADDRESS						      DOB	 G	SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+       123 Wilson    Ho        163 Old Road, Bayswater, London			     10-DEC-55 M	 15000		       12
+       111 John      Simon     883 Fair Road, Coventry				     07-SEP-60 M	 30000		       12
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			     08-JAN-50 F	 35000       2500	10
+       654 Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	     27-FEB-53 M	 32000		       11
+       321 Gary      Marker    221 Holloway Road, London			     16-NOV-63 F	 26000		       12
+
+22. Find all employees whose age is larger than the age of at least one employee in the Research Department.
+SQL> select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sysdate,DOB)/12)) 
+       from Employee
+       where DID=12
+);  2    3    4    5
+
+       EID FNAME     LNAME     ADDRESS						      DOB	 G  SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+       123 Wilson    Ho        163 Old Road, Bayswater, London			     10-DEC-55 M	  15000		   12
+       111 John      Simon     883 Fair Road, Coventry				     07-SEP-60 M	  30000		   12
+       222 Lucas     Tse       569 Heddon Street, Mayfair, London		     02-APR-70 M	  20000       5000	   10
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			     08-JAN-50 F	  35000       2500	   10
+       654 Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	     27-FEB-53 M	  32000		   11
+       321 Gary      Marker    221 Holloway Road, London			     16-NOV-63 F	  26000		   12
+       881 James     Steve     321 Voctory Road, Coventry			     31-DEC-71 M	  28000		   12
+       456 Mary      Law       134,Leicester Square,London			     05-OCT-65 M	  19000		   11
+
+8 rows selected.
+

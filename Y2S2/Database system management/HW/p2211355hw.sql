@@ -328,9 +328,15 @@ WHERE subquery.max_hours = (
     GROUP BY w.EID
 );
 
--- 21. List all the employees whose age is greater than the average age of all the employees.
-SELECT *
-FROM Employee
-WHERE DOB > (SELECT ROUND(SUM(EXTRACT(YEAR_MONTH_DAY FROM CURRENT_DATE) - e.DOB)/COUNT(e.EID)) as avg_age
-FROM Employee e ):
+-- 21. List all the employees whose age is greater than the average age of all the employees.*
+select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select avg(trunc(months_between(sysdate,DOB)/12)) from Employee);
+
+-- 22. Find all employees whose age is larger than the age of at least one employee in the Research Department.
+select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sysdate,DOB)/12)) 
+       from Employee
+       where DID=12
+);
+ 
 

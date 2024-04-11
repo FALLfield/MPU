@@ -684,6 +684,15 @@ TerryShooter		   1
 9 rows selected.
 
 29. How many projects have been undertaken by male and female employees?
+SQL> SELECT
+  SUM(CASE WHEN e.Gender = 'M' AND w.PID IS NOT NULL THEN 1 ELSE 0 END) AS male_num,
+  SUM(CASE WHEN e.Gender = 'F' AND w.PID IS NOT NULL THEN 1 ELSE 0 END) AS female_num
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID;  2    3    4    5  
+
+  MALE_NUM FEMALE_NUM
+---------- ----------
+	7	   5
 
 
 30. How many employees have worked on each project? The project names should be shown in the result

@@ -373,6 +373,12 @@ JOIN Work_On w ON e.EID = w.EID
 GROUP BY e.Fname, e.Lname;
 
 -- 29. How many projects have been undertaken by male and female employees?
+SELECT
+  SUM(CASE WHEN e.Gender = 'M' AND w.PID IS NOT NULL THEN 1 ELSE 0 END) AS male_num,
+  SUM(CASE WHEN e.Gender = 'F' AND w.PID IS NOT NULL THEN 1 ELSE 0 END) AS female_num
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID;
+
 
 -- 30. How many employees have worked on each project? The project names should be shown in the result
 SELECT COUNT(EID) as pro_num, p.name 

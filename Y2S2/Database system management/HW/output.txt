@@ -579,10 +579,10 @@ where trunc(months_between(sysdate,DOB)/12)>(select avg(trunc(months_between(sys
        321 Gary      Marker    221 Holloway Road, London			     16-NOV-63 F	 26000		       12
 
 22. Find all employees whose age is larger than the age of at least one employee in the Research Department.
-SQL> select * from Employee
-where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sysdate,DOB)/12)) 
-       from Employee
-       where DID=12
+SQL> SELECT * FROM Employee
+WHERE TRUNC(months_between(sysdate,DOB)/12)>(SELECT MIN(TRUNC(months_between(sysdate,DOB)/12)) 
+       FROM Employee
+       WHERE DID=12
 );  2    3    4    5
 
        EID FNAME     LNAME     ADDRESS						      DOB	 G  SALARY      BONUS	  DID
@@ -597,4 +597,108 @@ where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sys
        456 Mary      Law       134,Leicester Square,London			     05-OCT-65 M	  19000		   11
 
 8 rows selected.
+
+23.Find all the employees whose names contain a letter “Y”, arranged in descending order of the last name.
+SQL> SELECT * FROM Employee WHERE Fname like '%Y%' OR Lname like '%Y%' ORDER BY Lname DESC;
+
+       EID FNAME     LNAME     ADDRESS						     DOB	 G SALARY      BONUS	       DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+       654 Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	     27-FEB-53 M32000		        11
+
+24. List all the employees whose age is greater than the average age of all the employees.
+SQL> select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select avg(trunc(months_between(sysdate,DOB)/12)) from Employee);  2  
+
+       EID FNAME     LNAME     ADDRESS						      DOB	 G	SALARY      BONUS	  DID
+---------- --------- --------- -------------------------------------------------- --------- - ---------- ---------- ----------
+       123 Wilson    Ho        163 Old Road, Bayswater, London			     10-DEC-55 M	 15000		       12
+       111 John      Simon     883 Fair Road, Coventry				     07-SEP-60 M	 30000		       12
+       333 Rebecca   Sam       10 Grove Lane, Ipswich, Suffolk			     08-JAN-50 F	 35000       2500	10
+       654 Lawrence  Yip       11-15 Betterton Street, Covent Garden, London	     27-FEB-53 M	 32000		       11
+       321 Gary      Marker    221 Holloway Road, London			     16-NOV-63 F	 26000		       12
+
+25. Find out the number of projects in each department. The name of each department must be shown.
+
+SQL> SELECT COUNT(p.PID) AS pro_num, d.name 
+FROM Project p 
+JOIN Department d ON p.DID = d.DID 
+GROUP BY d.name;  2    3    4  
+
+   PRO_NUM    NAME
+---------- ----------------------------------------
+	3      Consumer Products Department
+	1      Research Department
+	1      Industrial Products Department
+
+26.Who work in only one project? The employee names should be shown in the result.
+
+SQL> SELECT CONCAT(e.Fname, e.Lname) as Name 
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname 
+HAVING COUNT(w.PID) = 1;  2    3    4    5  
+
+NAME
+------------------
+WilsonHo
+LucasTse
+MaryLaw
+LawrenceYip
+PaulSmith
+TerryShooter
+
+6 rows selected.
+
+27. Who work in more than one project? The employee names should be shown in the result.
+
+SQL> SELECT CONCAT(e.Fname, e.Lname) as Name 
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname 
+HAVING COUNT(w.PID) > 1;  2    3    4    5  
+
+NAME
+------------------
+JohnSimon
+GaryMarker
+RebeccaSam
+
+28. How many projects have been undertaken by each employee? The employee names should be shown in the result.
+SQL> SELECT CONCAT(e.Fname, e.Lname), COUNT(w.PID) as pro_num
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname;  2    3    4  
+
+CONCAT(E.FNAME,E.L    PRO_NUM
+------------------ ----------
+JohnSimon		   2
+WilsonHo		   1
+LucasTse		   1
+GaryMarker		   2
+RebeccaSam		   2
+MaryLaw 		   1
+LawrenceYip		   1
+PaulSmith		   1
+TerryShooter		   1
+
+9 rows selected.
+
+29. How many projects have been undertaken by male and female employees?
+
+
+30. How many employees have worked on each project? The project names should be shown in the result
+SQL> SELECT COUNT(EID) as pro_num, p.name 
+FROM Work_On w 
+JOIN Project p ON w.PID = p.PID 
+GROUP BY p.PID, p.name;  2    3    4  
+
+   PRO_NUM    NAME
+---------- ------------------------------
+	2      Mobile Phone
+	3      Interactive TV
+	3      I-Phone Applications
+	2      Mobile Phone
+	2      Internet Phone
+
+
 

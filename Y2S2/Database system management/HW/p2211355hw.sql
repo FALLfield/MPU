@@ -338,5 +338,47 @@ where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sys
        from Employee
        where DID=12
 );
+
+-- 23.Find all the employees whose names contain a letter “Y”, arranged in descending order of the last name.
+SELECT * FROM Employee WHERE Fname like '%Y%' OR Lname like '%Y%' ORDER BY Lname DESC;
+
+-- 24. List all the employees whose age is greater than the average age of all the employees.
+select * from Employee
+where trunc(months_between(sysdate,DOB)/12)>(select avg(trunc(months_between(sysdate,DOB)/12)) from Employee);
+
+-- 25. Find out the number of projects in each department. The name of each department must be shown.
+SELECT COUNT(p.PID) AS pro_num, d.name 
+FROM Project p 
+JOIN Department d ON p.DID = d.DID 
+GROUP BY d.name;
+
+-- 26.Who work in only one project? The employee names should be shown in the result.
+SELECT CONCAT(e.Fname, e.Lname) as Name 
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname 
+HAVING COUNT(w.PID) = 1;
+
+-- 27. Who work in more than one project? The employee names should be shown in the result.
+SELECT CONCAT(e.Fname, e.Lname) as Name 
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname 
+HAVING COUNT(w.PID) > 1;
+
+-- 28.How many projects have been undertaken by each employee? The employee names should be shown in the result.
+SELECT CONCAT(e.Fname, e.Lname), COUNT(w.PID) as pro_num
+FROM Employee e
+JOIN Work_On w ON e.EID = w.EID
+GROUP BY e.Fname, e.Lname;
+
+-- 29. How many projects have been undertaken by male and female employees?
+
+-- 30. How many employees have worked on each project? The project names should be shown in the result
+SELECT COUNT(EID) as pro_num, p.name 
+FROM Work_On w 
+JOIN Project p ON w.PID = p.PID 
+GROUP BY p.PID, p.name;
+
  
 

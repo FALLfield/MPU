@@ -274,10 +274,15 @@ JOIN Department d ON e.DID = d.DID
 GROUP BY d.name;
 
 -- 13. List the department which employs the lowest number of employees.
-SELECT MIN(COUNT(e.EID)) as lowest_employee_num
-FROM Employee e 
-JOIN Department d ON e.DID = d.DID 
-GROUP BY d.name;
+SELECT emp_count AS lowest_employee_num, name
+FROM (
+   SELECT COUNT(e.EID) AS emp_count, d.name
+   FROM Employee e 
+   JOIN Department d ON e.DID = d.DID 
+   GROUP BY d.name
+   ORDER BY emp_count ASC
+) subquery
+WHERE ROWNUM = 1;
 
 -- 14. List the employees who have bonus?
 SELECT CONCAT(Fname, Lname) as name 
@@ -303,7 +308,7 @@ WHERE w.PID IS NULL;
 SELECT *
 FROM Employee
 WHERE DOB = (
-    SELECT MIN(DOB)
+    SELECT MAX(DOB)
     FROM Employee
     WHERE Gender = 'F'
 );
@@ -341,6 +346,7 @@ where trunc(months_between(sysdate,DOB)/12)>(select min(trunc(months_between(sys
 
 -- 23.Find all the employees whose names contain a letter “Y”, arranged in descending order of the last name.
 SELECT * FROM Employee WHERE Fname like '%Y%' OR Lname like '%Y%' ORDER BY Lname DESC;
+SELECT * FROM Employee WHERE Fname like '%Y%' OR Lname like '%Y%' OR Fname like '%y%' OR Lname like '%y%' ORDER BY Lname DESC;
 
 -- 24. List all the employees whose age is greater than the average age of all the employees.
 select * from Employee
@@ -367,7 +373,7 @@ GROUP BY e.Fname, e.Lname
 HAVING COUNT(w.PID) > 1;
 
 -- 28.How many projects have been undertaken by each employee? The employee names should be shown in the result.
-SELECT CONCAT(e.Fname, e.Lname), COUNT(w.PID) as pro_num
+SELECT CONCAT(e.Fname, e.Lname) as name, COUNT(w.PID) as pro_num
 FROM Employee e
 JOIN Work_On w ON e.EID = w.EID
 GROUP BY e.Fname, e.Lname;

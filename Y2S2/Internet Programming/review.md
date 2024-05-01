@@ -104,8 +104,47 @@ admin.site.register(modelname)`
   23. CRUD functionality: You need to know how to write the view and template files or each of the functionality
 
   Create Update Delete `{% crsf_token %}`
+  ``#CreateView
+  #views.py
+  from django.views,generic.edit import CreateView
+  class BlogViewCreate(CreateView):
+  model = post
+  template_name = 'post_new.html'
+  fields = '**all**'
 
-  24. By default, Django's class-based DetailView expects the pk as argument for the generic view. Name the method that needs to be overriden in order to replace this default behavior
+                  #html
+                  <form action="" method = "post">{%csrf_token%}
+                      {{form.as_p}}
+                  <input type="submit" value="Save"/>
+                  </form>`
+
+  #Update View
+  #views.py
+  from django.views.generic import UpdateView
+  class BlogUpdateView(UpdateView):
+  model = post
+  template_name = "post_update.html"
+  fields = ['title','body']
+  HTML
+  <form action="" method = "post">{%csrf_token%}
+  {{form.as_p}}
+  <input type="submit" value="Save"/>
+  </form>
+
+  #DeleteView
+  views.py
+  from django.view.generic import DeleteView
+  from .models import Post
+  from django.urls import reverse_lazy
+  class BlogDeleteView(DeleteView):
+  model = Post
+  template_name = 'post_delete.html'
+  sucess_url = reverse_lazy('home')
+  HTML
+  <form action="" method="post">{{%csrf_token%}}
+  <p>Are you confirm to delete?</p>
+  <input type="submit" value="Confirm"/>
+  </form> 24. By default, Django's class-based DetailView expects the pk as argument for the generic view. Name the method that needs to be overriden in order to replace this default behavior
 
   `get_object()` We can override the get_object so that it gets the single desired obejct from the database
 
@@ -122,38 +161,33 @@ admin.site.register(modelname)`
   27. In settings.py, what is the result of defining the parameter LOGIN_REDIRECT_URL with a named URL pattern
 
   Set where to redirect the user upon a successful login
-
-  28. What is the use of django.contrib.auth in the INSTALLED_APPS tuple?
+  The **LOGIN_URL** parameter is used to specify the URL where the user should be redirected if they are not logged in and try to access a view that requries authentication. 28. What is the use of django.contrib.auth in the INSTALLED_APPS tuple?
 
   django.contrib.auth provides Django with access to the authentication system, which should be listed in INSTALLED_APPS tuple within the settings.py file.
 
   29. What are the steps to add the Login/Logout functions using Django's default user model?
 
-
       - Add a project-level urlpattern for the auth system
       - Creating the login template, the login template being rendered
-      - Edit settings.py to set where to redirect the user like ``LOGIN_REDIRECT_URL='home', LOGOUT_REDIRECT_URL='home'``
+      - Edit settings.py to set where to redirect the user like `LOGIN_REDIRECT_URL='home', LOGOUT_REDIRECT_URL='home'`
       - Provide a link to login
 
   30. What are the steps to add the Sign Up function using Django's default user model?
 
+            - Create an application, like 'acounts'
+            - Add a project-level urlpattern to point to this new app
+            - Create the file accounts/urls.py with the url mapping to handle sign up
+            - Write the logic for the view SignUpView as stated in step 3 above, in views.py.
+              `from django.contrib.auth.forms import UserCreationForm
 
-      - Create an application, like 'acounts'
-      - Add a project-level urlpattern to point to this new app
-      - Create the file accounts/urls.py with the url mapping to handle sign up
-      - Write the logic for the view SignUpView as stated in step 3 above, in views.py.
-          ``from django.contrib.auth.forms import UserCreationForm
-              from django.urls import reverse_lazy
-              class SignUpView(generic CreateView):
-              form_class = UserCreationForm
-              success_url = reverse_lazy('login')
-              template_name = 'signup.html'``
-      - Create the template file for the presentation of the signup page
-          ``<form method = "post">{% csrf_token %}
-              {{form.as_p}}
-            <button type="submit"> Signup</button>
-            </form>``
-      - Provide a link
+      from django.urls import reverse_lazy
+      class SignUpView(generic CreateView):
+      form_class = UserCreationForm
+      success_url = reverse_lazy('login')
+      template_name = 'signup.html'`      - Create the template file for the presentation of the signup page`<form method = "post">{% csrf_token %}
+      {{form.as_p}}
+      <button type="submit"> Signup</button>
+      </form>` - Provide a link
 
   31. Write the template with the necessary template tags and template variables such that
 
@@ -161,4 +195,26 @@ admin.site.register(modelname)`
     `{% if user.is_authenticated %}
       <p>{{user.username}}</p>
       <p><a href="{% url 'logout' %}">logout</a><p>`
-  - for a logout user, a login link is displayed
+  - for a logout user, a login link is displayed  
+    {%else%}
+    <p>You are not logged in </p>
+    <p><a href="{%url 'login'%}>Login</a></p>"
+    {%endif%}
+
+  32. Write the template file for login.html with two textboxes for id and password and a button to submit the form
+
+      ``{%extends 'base.html'%}
+      {% block content %}
+      <h1>Login</h1>
+      <form method = "post">{% csrf_token %}
+          {{form.as_p}}
+      <button type = "submit">Login</button>
+      </form>
+      {%endblock content%}``
+
+  33. Given the following URL ..
+      - Waht action causes this URL to be displayed on the browser
+        Because the User haven't login and enter the articles/new url, so that it will redirect to this url. After the User login then it will go to articles/new url.
+  34. What is the purpose of writing the following line in settings.py
+      AUTH_USER_MODEL = 'yourAppNameHere.CustomUser'
+      Updating the settings.py is to tell Django to replace the built-in custom model to the new custom user model.
